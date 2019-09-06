@@ -2,22 +2,56 @@
 	"name": "wal-theme",
 	"displayName": "Wal Theme",
 	"description": "A theme generated with pywal color palette",
+	"publisher": "dlasagno",
+	"author": "Daniele Lasagno",
+  "license": "MIT",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.34.0"
 	},
 	"categories": [
-		"Other"
+		"Themes"
+	],
+	"keywords": [
+		"theme",
+		"pywal",
+		"wal"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"*",
+		"onCommand:walTheme.update"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "walTheme.update",
+				"title": "Update",
+				"category": "Wal Theme"
+			}
+		],
+		"configuration": {
+			"title": "Wal Theme",
+			"properties": {
+				"walTheme.autoUpdate": {
+					"type": "boolean",
+					"default": true,
+					"description": "Update automatically the theme when the pywal color palette changes"
+				}
+			}
+		},
+		"themes": [
+			{
+				"label": "Wal",
+				"uiTheme": "vs-dark",
+				"path": "./themes/wal.json",
+				"_watch": true
+			},
+			{
+				"label": "Wal Bordered",
+				"uiTheme": "vs-dark",
+				"path": "./themes/wal-bordered.json",
+				"_watch": true
 			}
 		]
 	},
