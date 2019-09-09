@@ -35,5 +35,5 @@ function generateColorThemes() {
 	
 	// Generate the bordered theme
 	const colorThemeBordered = template(colors, true);
-	fs.writeFileSync(path.join(__dirname,'../themes/wal-bordered.json'), JSON.stringify(colorTheme, null, 4));
+	fs.writeFileSync(path.join(__dirname,'../themes/wal-bordered.json'), JSON.stringify(colorThemeBordered, null, 4));
 }
