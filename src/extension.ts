@@ -17,6 +17,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Start the auto update if enabled
 	if(vscode.workspace.getConfiguration().get('walTheme.autoUpdate')) {
+		generateColorThemes(); // Needed for when wal palette updates shile vscode isn't running
 		autoUpdateWatcher = autoUpdate();
 	}
 
