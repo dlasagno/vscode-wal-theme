@@ -2,3 +2,6 @@ out
 node_modules
 .vscode-test/
 *.vsix
+
+# Prevent changes to the blank themes
+wal-bordered.json
