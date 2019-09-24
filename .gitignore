@@ -5,3 +5,4 @@ node_modules
 
 # Prevent changes to the blank themes
 wal-bordered.json
+wal.json

@@ -1,12 +1,14 @@
 # Wal Theme
 
-This extensions for Visual Studio Code adds a new **real time** theme that is dynamically generated from the color palette provided by [pywal](https://github.com/dylanaraps/pywal).
+This extensions for Visual Studio Code adds a **real time updated theme** that is dynamically generated from the color palette provided by [pywal](https://github.com/dylanaraps/pywal).
 
-![Example 1](screenshots/1.png)
+## Screenshots
 
-![Example 2](screenshots/2.png)
+![Example 1](https://raw.githubusercontent.com/dlasagno/vscode-wal-theme/master/screenshots/1.png)
 
-![Example 3](screenshots/3.png)
+![Example 2](https://raw.githubusercontent.com/dlasagno/vscode-wal-theme/master/screenshots/2.png)
+
+![Example 3](https://raw.githubusercontent.com/dlasagno/vscode-wal-theme/master/screenshots/3.png)
 
 ## Features
 
@@ -22,11 +24,11 @@ In order to use this extension pywal is needed, it should be run before updating
 
 This extension contributes the following setting:
 
-* `walTheme.autoUpdate`: enable/disable the auto update of the theme provided by this extension
+- `walTheme.autoUpdate`: enable/disable the auto update of the theme provided by this extension
 
 ## Release Notes
 
-The release notes can be find in the [changelog](https://github.com/dlasagno/vscode-wal-theme/blob/master/CHANGELOG.md)
+The release notes can be find in the [changelog](https://github.com/dlasagno/vscode-wal-theme/blob/master/CHANGELOG.md).
 
 ---
 
