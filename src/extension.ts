@@ -57,8 +57,7 @@ function generateColorThemes() {
 	try {
 		colors = fs.readFileSync(walColorsPath)
 										 .toString()
-										 .split('\n')
-										 .slice(0,16)
+										 .split(/\s/, 16)
 										 .map(hex => Color(hex));
 	} catch(error) {
 		vscode.window.showErrorMessage('Couldn\'t load colors from pywal cache, be sure to run pywal before updating.');
