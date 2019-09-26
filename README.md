@@ -20,6 +20,12 @@ This extensions for Visual Studio Code adds a **real time updated theme** that i
 
 In order to use this extension pywal is needed, it should be run before updating the theme provided by this extension.
 
+## Extension Commands
+
+This extension contributes the following command:
+
+- `walTheme.update`: execute a manual update of the theme
+
 ## Extension Settings
 
 This extension contributes the following setting:
@@ -29,6 +35,11 @@ This extension contributes the following setting:
 ## Release Notes
 
 The release notes can be find in the [changelog](https://github.com/dlasagno/vscode-wal-theme/blob/master/CHANGELOG.md).
+
+## Troubleshooting
+
+If the extension doesn't update automatically, while the auto updates are enabled, try to do a manual update with the update command.
+If the manual update doesn't work try reloading the window.
 
 ---
 

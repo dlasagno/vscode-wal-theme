@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2019-09-26
+
+### Added
+
+- Extended support to vscode 1.34.0 and beyond
+
+### Changed
+
+- Better loading of colors from pywal(Windows user should be able to load their files)
+
 ## [1.0.0] - 2019-09-23
 
 - Initial release of Wal Theme
