@@ -379,14 +379,14 @@ export default (colors: Color[], bordered: boolean) => ({
       'name': 'Storage',
       'scope': ['storage'],
       'settings': {
-        'foreground': colors[11].hex()
+        'foreground': colors[14].hex()
       }
     },
     {
       'name': 'Keyword',
       'scope': ['keyword'],
       'settings': {
-        'foreground': colors[11].hex()
+        'foreground': colors[14].hex()
       }
     },
     
@@ -452,7 +452,7 @@ export default (colors: Color[], bordered: boolean) => ({
       'name': 'Lambda arrow',
       'scope': ['storage.type.function'],
       'settings': {
-        'foreground': colors[11].hex()
+        'foreground': colors[14].hex()
       }
     },
     {
@@ -639,7 +639,7 @@ export default (colors: Color[], bordered: boolean) => ({
       'name': 'Search Results Match Nums',
       'scope': ['constant.numeric.line-number.match'],
       'settings': {
-        'foreground': colors[11].hex()
+        'foreground': colors[14].hex()
       }
     },
     {
