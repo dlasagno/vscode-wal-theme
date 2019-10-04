@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2019-10-04
+
+### Changed
+
+- The keyword color highlighting for a better readability
+
 ## [1.0.2] - 2019-09-26
 
 ### Changed
