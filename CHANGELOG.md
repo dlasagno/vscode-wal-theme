@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.4] - 2020-04-03
+
+### Fixed
+
+- Fix theme autoupdate not working at startup when colors changed while vscode was closed: now autoupdate is delayed by 10 seconds
+
 ## [1.0.3] - 2019-10-04
 
 ### Changed
