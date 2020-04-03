@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.4] - 2020-04-03
 
+### Changed
+
+- Updated version of the dependecies
+- Now `@types/color` has become a dev dependency
+
 ### Fixed
 
 - Fix theme autoupdate not working at startup when colors changed while vscode was closed: now autoupdate is delayed by 10 seconds
