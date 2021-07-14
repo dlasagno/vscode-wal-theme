@@ -337,7 +337,7 @@ export default (colors: Color[], bordered: boolean) => ({
       'name': 'Number',
       'scope': ['constant.numeric'],
       'settings': {
-        'foreground': colors[1].hex()
+        'foreground': colors[5].hex()
       }
     },
     {
@@ -383,10 +383,24 @@ export default (colors: Color[], bordered: boolean) => ({
       }
     },
     {
+      'name': 'type',
+      'scope': ['storage.modifier'],
+      'settings': {
+        'foreground': colors[11].hex()
+      }
+    },
+    {
+      'name': 'type',
+      'scope': ['meta.specification.type.fortran'],
+      'settings': {
+        'foreground': colors[15].hex()
+      }
+    },
+    {
       'name': 'Keyword',
       'scope': ['keyword'],
       'settings': {
-        'foreground': colors[14].hex()
+        'foreground': colors[1].hex()
       }
     },
     
@@ -395,9 +409,9 @@ export default (colors: Color[], bordered: boolean) => ({
     // Operators
     {
       'name': 'Operators',
-      'scope': ['keyword.operator'],
+      'scope': ['keyword.operator', 'keyword.other', 'keyword.control', 'keyword.logical'],
       'settings': {
-        'foreground': colors[3].hex()
+        'foreground': colors[11].hex()
       }
     },
 
@@ -471,14 +485,21 @@ export default (colors: Color[], bordered: boolean) => ({
       'name': 'Function name',
       'scope': ['entity.name.function'],
       'settings': {
-        'foreground': colors[11].hex()
+        'foreground': colors[13].hex()
       }
     },
     {
       'name': 'Function arguments',
-      'scope': ['variable.parameter', 'meta.parameter'],
+      'scope': ['variable.parameter'],
       'settings': {
-        'foreground': colors[13].hex()
+        'foreground': colors[15].hex()
+      }
+    },
+    {
+      'name': 'Function arguments',
+      'scope': ['meta.parameter'],
+      'settings': {
+        'foreground': colors[15].hex()
       }
     },
     {
@@ -497,7 +518,7 @@ export default (colors: Color[], bordered: boolean) => ({
       'name': 'Library function',
       'scope': ['support.function', 'support.macro'],
       'settings': {
-        'foreground': colors[1].hex()
+        'foreground': colors[5].hex()
       }
     },
     
@@ -515,7 +536,7 @@ export default (colors: Color[], bordered: boolean) => ({
       'name': 'Entity name',
       'scope': ['entity.name'],
       'settings': {
-        'foreground': colors[12].hex()
+        'foreground': colors[13].hex()
       }
     },
     
