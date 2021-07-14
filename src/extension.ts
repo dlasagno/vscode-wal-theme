@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
 		 * Update theme at startup
 		 * Needed for when wal palette updates while vscode isn't running.
 		 * The timeout is required to overcome a limitation of vscode which
-		 * breaks the theme autoupdate if updated too early at startup.
+		 * breaks the theme auto-update if updated too early at startup.
 		 */
 		setTimeout(generateColorThemes, 10000);
 
