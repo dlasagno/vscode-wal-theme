@@ -5,7 +5,9 @@ import * as os from 'os';
 import * as Color from 'color';
 import template from './template';
 
-const walColorsPath = path.join(os.homedir(), '/.cache/wal/colors');
+const walCachePath = path.join(os.homedir(), '/.cache/wal');
+const walColorsPath = path.join(walCachePath, '/colors');
+const walColorsJsonPath = path.join(walCachePath, '/colors.json');
 let autoUpdateWatcher: fs.FSWatcher | null = null;
 
 
@@ -65,7 +67,24 @@ function generateColorThemes() {
 		colors = fs.readFileSync(walColorsPath)
 										 .toString()
 										 .split(/\s+/, 16)
-										 .map(hex => Color(hex));
+			.map(hex => Color(hex));
+		
+		if (fs.existsSync(walColorsJsonPath)) {
+			type WalJson = {
+				special: {
+					background: string,
+					foreground: string
+				}
+			};
+
+			const colorsJson: WalJson = JSON.parse(
+					fs.readFileSync(walColorsJsonPath)
+						.toString()
+			);
+
+			colors[0] = Color(colorsJson?.special?.background);
+			colors[7] = Color(colorsJson?.special?.foreground);
+		}
 	} catch(error) {
 		vscode.window.showErrorMessage('Couldn\'t load colors from pywal cache, be sure to run pywal before updating.');
 		return;
@@ -88,7 +107,7 @@ function autoUpdate(): fs.FSWatcher {
 	let fsWait = false;
 
 	// Watch for changes in the color palette of wal
-	return fs.watch(walColorsPath, (event, filename) => {
+	return fs.watch(walCachePath, (event, filename) => {
 		if (filename) {
 			// Delay after a change is found
 			if (fsWait) {
