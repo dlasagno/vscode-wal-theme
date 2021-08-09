@@ -7,16 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0]
+
+### Changed
+
+- Now the custom background and foreground colors from the `colors.json` will be used if available
+- Improved color scheme, especially for fortran language
+
+### Fixed
+
+- Behavior when using vscode remote
+
 ## [1.0.4] - 2020-04-03
 
 ### Changed
 
-- Updated version of the dependecies
+- Updated version of the dependencies
 - Now `@types/color` has become a dev dependency
 
 ### Fixed
 
-- Fix theme autoupdate not working at startup when colors changed while vscode was closed: now autoupdate is delayed by 10 seconds
+- Theme auto-update not working at startup when colors changed while vscode was closed: now autoupdate is delayed by 10 seconds
 
 ## [1.0.3] - 2019-10-04
 
