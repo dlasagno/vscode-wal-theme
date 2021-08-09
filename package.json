@@ -79,7 +79,7 @@
 		"@types/color": "^3.0.2",
 		"@types/glob": "^7.1.4",
 		"@types/node": "^13.13.52",
-		"@types/vscode": "^1.58.0",
+		"@types/vscode": "^1.34.0",
 		"@typescript-eslint/eslint-plugin": "^4.28.3",
 		"@typescript-eslint/parser": "^4.28.3",
 		"eslint": "^7.30.0",
