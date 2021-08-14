@@ -5,9 +5,9 @@ import * as os from 'os';
 import * as Color from 'color';
 import template from './template';
 
-const walCachePath = path.join(os.homedir(), '/.cache/wal');
-const walColorsPath = path.join(walCachePath, '/colors');
-const walColorsJsonPath = path.join(walCachePath, '/colors.json');
+const walCachePath = path.join(os.homedir(), '.cache', 'wal');
+const walColorsPath = path.join(walCachePath, 'colors');
+const walColorsJsonPath = path.join(walCachePath, 'colors.json');
 let autoUpdateWatcher: fs.FSWatcher | null = null;
 
 
@@ -62,7 +62,7 @@ export function deactivate() {
  */
 function generateColorThemes() {
 	// Import colors from pywal cache
-	let colors: Color[];
+	let colors: Color[] | undefined;
 	try {
 		colors = fs.readFileSync(walColorsPath)
 										 .toString()
@@ -77,26 +77,40 @@ function generateColorThemes() {
 				}
 			};
 
-			const colorsJson: WalJson = JSON.parse(
-					fs.readFileSync(walColorsJsonPath)
-						.toString()
-			);
+			let colorsJson: WalJson;
+			const colorsRaw = fs.readFileSync(walColorsJsonPath).toString();
+
+			try {
+				colorsJson = JSON.parse(colorsRaw);
+			} catch {
+				// The wallpaper path on Windows can cause JSON.parse errors since the
+				// path isn't properly escaped.
+				colorsJson = JSON.parse(colorsRaw
+					.split('\n')
+					.filter((line) => !line.includes('wallpaper'))
+					.join('\n'));
+			}
 
 			colors[0] = Color(colorsJson?.special?.background);
 			colors[7] = Color(colorsJson?.special?.foreground);
 		}
 	} catch(error) {
-		vscode.window.showErrorMessage('Couldn\'t load colors from pywal cache, be sure to run pywal before updating.');
-		return;
+		// Not a complete failure if we have colors from the wal colors file, but failed to load from the colors.json
+		if (colors === undefined || colors.length === 0) {
+			vscode.window.showErrorMessage('Couldn\'t load colors from pywal cache, be sure to run pywal before updating.');
+			return;
+		}
+
+		vscode.window.showWarningMessage('Couldn\'t load all colors from pywal cache');
 	}
 		
 	// Generate the normal theme
 	const colorTheme = template(colors, false);
-	fs.writeFileSync(path.join(__dirname,'../themes/wal.json'), JSON.stringify(colorTheme, null, 4));
+	fs.writeFileSync(path.join(__dirname,'..', 'themes', 'wal.json'), JSON.stringify(colorTheme, null, 4));
 	
 	// Generate the bordered theme
 	const colorThemeBordered = template(colors, true);
-	fs.writeFileSync(path.join(__dirname,'../themes/wal-bordered.json'), JSON.stringify(colorThemeBordered, null, 4));
+	fs.writeFileSync(path.join(__dirname,'..', 'themes', 'wal-bordered.json'), JSON.stringify(colorThemeBordered, null, 4));
 }
 
 /**
