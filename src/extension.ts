@@ -121,7 +121,7 @@ function autoUpdate(): fs.FSWatcher {
 	let fsWait = false;
 
 	// Watch for changes in the color palette of wal
-	return fs.watch(walCachePath, (event, filename) => {
+	return fs.watch(walColorsJsonPath, (event, filename) => {
 		if (filename) {
 			// Delay after a change is found
 			if (fsWait) {
