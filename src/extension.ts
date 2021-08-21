@@ -2,13 +2,14 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as os from 'os';
+import * as chokidar from 'chokidar';
 import * as Color from 'color';
 import template from './template';
 
 const walCachePath = path.join(os.homedir(), '.cache', 'wal');
 const walColorsPath = path.join(walCachePath, 'colors');
 const walColorsJsonPath = path.join(walCachePath, 'colors.json');
-let autoUpdateWatcher: fs.FSWatcher | null = null;
+let autoUpdateWatcher: chokidar.FSWatcher | null = null;
 
 
 export function activate(context: vscode.ExtensionContext) {
@@ -117,23 +118,9 @@ function generateColorThemes() {
  * Automatically updates the theme when the color palette changes
  * @returns The watcher for the color palette
  */
-function autoUpdate(): fs.FSWatcher {
-	let fsWait = false;
-
+function autoUpdate(): chokidar.FSWatcher {
 	// Watch for changes in the color palette of wal
-	return fs.watch(walCachePath, (event, filename) => {
-		if (filename) {
-			// Delay after a change is found
-			if (fsWait) {
-				return;
-			}
-			fsWait = true;
-			setTimeout(() => {
-				fsWait = false;
-			}, 100);
-	
-			// Update the theme
-			generateColorThemes();
-		}
-	});
+	return chokidar
+		.watch(walCachePath)
+		.on('change', generateColorThemes);
 }

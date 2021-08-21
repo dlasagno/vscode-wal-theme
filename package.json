@@ -87,6 +87,7 @@
 		"typescript": "^3.9.10"
 	},
 	"dependencies": {
+		"chokidar": "^3.5.2",
 		"color": "^3.1.3"
 	}
 }
