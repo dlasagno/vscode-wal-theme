@@ -1,7 +1,7 @@
 import * as Color from 'color';
 
-export default (colors: Color[], bordered: boolean) => ({
-  'type': 'dark',
+export default (colorType: 'dark' | 'light', colors: Color[], bordered: boolean) => ({
+  'type': colorType,
   'colors': {
     // Colour reference https://code.visualstudio.com/docs/getstarted/theme-color-reference
 
