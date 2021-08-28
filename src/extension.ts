@@ -104,15 +104,13 @@ function generateColorThemes() {
 
 		vscode.window.showWarningMessage('Couldn\'t load all colors from pywal cache');
 	}
-	
-	const colorType = getColorType(colors[0]);
-
+		
 	// Generate the normal theme
-	const colorTheme = template(colorType, colors, false);
+	const colorTheme = template(colors, false);
 	fs.writeFileSync(path.join(__dirname,'..', 'themes', 'wal.json'), JSON.stringify(colorTheme, null, 4));
 	
 	// Generate the bordered theme
-	const colorThemeBordered = template(colorType, colors, true);
+	const colorThemeBordered = template(colors, true);
 	fs.writeFileSync(path.join(__dirname,'..', 'themes', 'wal-bordered.json'), JSON.stringify(colorThemeBordered, null, 4));
 }
 
@@ -125,12 +123,4 @@ function autoUpdate(): chokidar.FSWatcher {
 	return chokidar
 		.watch(walCachePath)
 		.on('change', generateColorThemes);
-}
-
-/**
- * Determine if the color is light or dark using HSP http://alienryderflex.com/hsp.html
- */
-function getColorType(color: Color): 'light' | 'dark' {
-	const hsp = Math.sqrt(0.299 * Math.pow(color.red(), 2) + 0.587 * Math.pow(color.green(), 2) + 0.114 * Math.pow(color.blue(), 2));
-	return (hsp > 127.5) ? 'light' : 'dark';
 }
