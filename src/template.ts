@@ -258,6 +258,7 @@ export default (colors: Color[], bordered: boolean) => ({
     'pickerGroup.foreground': colors[7].hex()+'b3',
     
     // DEBUG
+    'debugTokenExpression.value': colors[7].hex()+'b3',
     'debugToolBar.background': colors[0].hex(),
     // 'debugToolBar.border': '',
     
