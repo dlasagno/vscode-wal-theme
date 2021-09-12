@@ -141,6 +141,14 @@ export default (colors: Color[], bordered: boolean) => ({
     
     'editorBracketMatch.background': colors[8].hex()+'33',
     'editorBracketMatch.border': colors[8].hex()+'55',
+
+    // BRACKET MATCHES
+    'editorBracketHighlight.foreground1': colors[6].lighten(0.25).hex(),
+    'editorBracketHighlight.foreground2': colors[5].lighten(0.25).hex(),
+    'editorBracketHighlight.foreground3': colors[4].lighten(0.25).hex(),
+    'editorBracketHighlight.foreground4': colors[3].lighten(0.4).hex(),
+    'editorBracketHighlight.foreground5': colors[2].lighten(0.25).hex(),
+    'editorBracketHighlight.foreground6': colors[1].lighten(0.25).hex(),
     
     // OVERVIEW RULER
     'editorOverviewRuler.border': colors[8].hex()+'33',
