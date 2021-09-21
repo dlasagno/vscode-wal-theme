@@ -5,7 +5,7 @@
 	"publisher": "dlasagno",
 	"author": "Daniele Lasagno",
 	"license": "MIT",
-	"version": "1.1.4",
+	"version": "1.2.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/dlasagno/vscode-wal-theme"
